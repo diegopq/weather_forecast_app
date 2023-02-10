@@ -22,36 +22,16 @@ To run the desired flavor either use the launch configuration in VSCode/Android 
 
 ```sh
 # Development
-$ flutter run --flavor development --target lib/main_development.dart
+$ flutter run --flavor development --target lib/main_development.dart --dart-define-from-file=.env.json
 
 # Staging
-$ flutter run --flavor staging --target lib/main_staging.dart
+$ flutter run --flavor staging --target lib/main_staging.dart --dart-define-from-file=.env.json
 
 # Production
-$ flutter run --flavor production --target lib/main_production.dart
+$ flutter run --flavor production --target lib/main_production.dart --dart-define-from-file=.env.json
 ```
 
 _\*Weather Forecast works on iOS, Android, Web, and Windows._
-
----
-
-## Running Tests 🧪
-
-To run all unit and widget tests use the following command:
-
-```sh
-$ flutter test --coverage --test-randomize-ordering-seed random
-```
-
-To view the generated coverage report you can use [lcov](https://github.com/linux-test-project/lcov).
-
-```sh
-# Generate Coverage Report
-$ genhtml coverage/lcov.info -o coverage/
-
-# Open Coverage Report
-$ open coverage/index.html
-```
 
 ---
 

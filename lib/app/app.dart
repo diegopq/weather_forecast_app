@@ -7,6 +7,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:responsive_framework/responsive_framework.dart';
 import 'package:weather_forecast/app/core/presentation/global_widgets.dart/global_widgets.dart';
 import 'package:weather_forecast/app/core/routes/router.dart';
+import 'package:weather_forecast/app/core/theme/theme.dart';
 import 'package:weather_forecast/app/core/utils/utils.dart';
 import 'package:weather_forecast/l10n/l10n.dart';
 
@@ -40,6 +41,9 @@ class _App extends StatelessWidget {
         BotToastNavigatorObserver(),
       ],
     );
+    print(EnvConfig.kWeatherApiUrl);
+    print(EnvConfig.kWeatherApiKey);
+    print(EnvConfig.kReservamosApiUrl);
     return FlavorBanner(
       flavor: flavor,
       child: ScreenUtilInit(
@@ -47,12 +51,7 @@ class _App extends StatelessWidget {
           return MaterialApp.router(
             routerConfig: appRouter.router,
             debugShowCheckedModeBanner: false,
-            theme: ThemeData(
-              appBarTheme: const AppBarTheme(color: Color(0xFF13B9FF)),
-              colorScheme: ColorScheme.fromSwatch(
-                accentColor: const Color(0xFF13B9FF),
-              ),
-            ),
+            theme: LighTheme.data,
             localizationsDelegates: const [
               ...AppLocalizations.localizationsDelegates,
             ],

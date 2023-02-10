@@ -3,7 +3,7 @@ part of 'services.dart';
 // ignore: one_member_abstracts
 abstract class IBaseRestClient {
   Future<T> requestHttp<T>({
-    required String httpMethod,
+    required RequestType httpMethod,
     required String endpointUrl,
     required Map<String, dynamic> requestData,
   });
@@ -43,9 +43,11 @@ class RestDioClient implements IBaseRestClient {
 
   Map<String, String> headers = {};
 
+  final _successStatus = [200, 201];
+
   @override
   Future<T> requestHttp<T>({
-    required String httpMethod,
+    required RequestType httpMethod,
     required String endpointUrl,
     required Map<String, dynamic> requestData,
   }) async {
@@ -57,16 +59,18 @@ class RestDioClient implements IBaseRestClient {
       try {
         final response = await dio.request<String>(
           endpointUrl,
-          data: (httpMethod == 'POST') ? requestData : <dynamic, dynamic>{},
+          data: (httpMethod == RequestType.post)
+              ? requestData
+              : <dynamic, dynamic>{},
           options: Options(
-            method: httpMethod,
+            method: httpMethod.name.toUpperCase(),
             headers: headers,
             responseType: ResponseType.json,
             receiveTimeout: 5000,
             sendTimeout: 10000,
-            validateStatus: (status) => status == 200,
+            validateStatus: _successStatus.contains,
           ),
-          queryParameters: (httpMethod == 'GET') ? requestData : {},
+          queryParameters: (httpMethod == RequestType.get) ? requestData : {},
         );
         return jsonDecode(response.data!) as T;
       } on DioError catch (e) {

@@ -5,10 +5,24 @@ class HomePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      color: Colors.red,
-      child: Text(
-        'Home',
+    return Scaffold(
+      body: Container(
+        child: Center(
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Text(
+                'Home',
+              ),
+              ElevatedButton(
+                onPressed: () {
+                  getIt<IPlacesDatasource>().getSearchResults(placeName: 'mon');
+                },
+                child: Text('Llamar'),
+              ),
+            ],
+          ),
+        ),
       ),
     );
   }
