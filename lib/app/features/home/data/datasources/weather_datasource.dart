@@ -4,8 +4,8 @@ part of 'datasources.dart';
 abstract class IWeatherDataSource {
   ///Gets the weather for a specific location
   Future<WeatherModel> getLocationWeather({
-    required double lat,
-    required double lon,
+    required String lat,
+    required String lon,
   });
 }
 
@@ -18,8 +18,8 @@ class WeatherDatasource extends IWeatherDataSource {
 
   @override
   Future<WeatherModel> getLocationWeather({
-    required double lat,
-    required double lon,
+    required String lat,
+    required String lon,
   }) async {
     final res = await _client.requestHttp<Map<String, dynamic>>(
       httpMethod: RequestType.get,

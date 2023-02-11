@@ -41,9 +41,6 @@ class _App extends StatelessWidget {
         BotToastNavigatorObserver(),
       ],
     );
-    print(EnvConfig.kWeatherApiUrl);
-    print(EnvConfig.kWeatherApiKey);
-    print(EnvConfig.kReservamosApiUrl);
     return FlavorBanner(
       flavor: flavor,
       child: ScreenUtilInit(

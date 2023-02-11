@@ -7,8 +7,8 @@ class WeatherRepoImpl implements IWeatherRepo {
 
   @override
   Future<Either<Failure, Weather>> getLocationWeather({
-    required double lat,
-    required double lon,
+    required String lat,
+    required String lon,
   }) async {
     try {
       final result = await _weatherDataSource.getLocationWeather(

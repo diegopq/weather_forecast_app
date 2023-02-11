@@ -13,6 +13,20 @@ class Place {
     required this.placeType,
   });
 
+  factory Place.empty() {
+    return Place(
+      id: 0,
+      slug: '',
+      placeName: '',
+      cityName: '',
+      state: '',
+      country: '',
+      lat: '',
+      lon: '',
+      placeType: PlaceType.none,
+    );
+  }
+
   final int id;
   final String slug;
   final String placeName;

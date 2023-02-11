@@ -16,6 +16,7 @@ class SearchPlaces {
             .where(
               (element) => element.lat.isNotEmpty && element.lon.isNotEmpty,
             )
+            .where((element) => element.placeType == PlaceType.city)
             .toList();
       },
     );

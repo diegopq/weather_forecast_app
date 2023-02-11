@@ -15,7 +15,10 @@ class DayWeatherModel extends DayWeather {
 
   factory DayWeatherModel.fromJson(Map<String, dynamic> json) {
     return DayWeatherModel(
-      date: DateTime.fromMillisecondsSinceEpoch(json['dt'] as int, isUtc: true),
+      date: DateTime.fromMillisecondsSinceEpoch(
+        (json['dt'] as int) * 1000,
+        isUtc: true,
+      ),
       maxTemp: json['temp']['max'] as num,
       minTemp: json['temp']['min'] as num,
       pressure: json['pressure'] as num,

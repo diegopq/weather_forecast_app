@@ -6,8 +6,8 @@ class GetWeather {
   final IWeatherRepo _weatherRepo;
 
   Future<Either<Failure, Weather>> call({
-    required double lat,
-    required double lon,
+    required String lat,
+    required String lon,
   }) async {
     return _weatherRepo.getLocationWeather(lat: lat, lon: lon);
   }

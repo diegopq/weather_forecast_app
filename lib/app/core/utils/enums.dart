@@ -10,4 +10,4 @@ enum BaseClientExceptionType { unknown, network, server, other, auth, client }
 enum RequestType { get, post, put, patch }
 
 ///Type of place
-enum PlaceType { city, terminal, airport }
+enum PlaceType { city, terminal, airport, none }
