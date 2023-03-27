@@ -29,7 +29,7 @@ dependencies:
   go_router: ^6.0.6 #https://pub.dev/packages/go_router
 
   #networking
-  dio: ^4.0.6 #https://pub.dev/packages/dio
+  dio: ^5.1.0 #https://pub.dev/packages/dio
 
   #UI
   bot_toast: ^4.0.3 #https://pub.dev/packages/bot_toast
